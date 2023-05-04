@@ -1,0 +1,47 @@
+{
+  "name": "managedocker",
+  "version": "1.0.0",
+  "description": "manage docker container from inside container",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 public/**/*.html public/**/*.css dist/public/",
+    "build": "npm run clean && npx tsc && npm run copy-files",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issugo/managedocker.git"
+  },
+  "keywords": [
+    "manage",
+    "docker",
+    "container",
+    "monitor"
+  ],
+  "author": "issugo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/issugo/managedocker/issues"
+  },
+  "homepage": "https://github.com/issugo/managedocker#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.16.3",
+    "concurrently": "^8.0.1",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^2.0.22",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^5.0.10"
+  }
+}
